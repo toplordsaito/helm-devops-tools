@@ -4,6 +4,7 @@ metadata:
   labels:
     app: welcome-php
   name: welcome-php
+  namespace: default
 spec:
   replicas: 1
   selector:
