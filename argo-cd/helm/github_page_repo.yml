@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-github-page
+  namespace: default
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://toplordsaito.github.io/helm-devops-tools/'
+    targetRevision: 0.2.0
+    chart: helm-devops
+    helm:
+      releaseName: test
+  project: default
