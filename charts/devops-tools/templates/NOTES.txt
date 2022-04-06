@@ -1,0 +1,10 @@
+helm dependency with
+{{- if index .Values "ingress-nginx" "enabled" }}
+nginx ingress
+{{- end }}
+{{- if index .Values "sealed-secrets" "enabled" }}
+seal secret
+{{- end }}
+{{- if index .Values "argocd-image-updater" "enabled" }}
+argocd-image-updater
+{{- end }}

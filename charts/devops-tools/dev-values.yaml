@@ -1,0 +1,18 @@
+ingress-nginx:
+  enabled: true
+sealed-secrets:
+  enabled: false
+argocd-image-updater:
+  enabled: true
+  config:
+    registries:
+      - name: ECR
+        api_url: https://00000000.dkr.ecr.ap-southeast-1.amazonaws.com
+        prefix: 00000000.dkr.ecr.ap-southeast-1.amazonaws.com
+        ping: yes
+        insecure: no
+        credentials: ext:/scripts/ecr-creds.sh
+        credsexpire: 10h
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::00000000:role/argo-image-updater
